@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мой сайт на Java script</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      color: #333;
+      background-color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Добро пожаловать на мой сайт!</h1>
+  <button id="clickBtn">Нажми меня</button>
+  <div class="message" id="message"></div>
+
+  <script>
+    const button = document.getElementById('clickBtn');
+    const message = document.getElementById('message');
+    const messages = [
+      'Приятно познакомиться 😄',
+      'Сегодня отличный день!',
+      'Ты великолепен ✨',
+      'Продолжай в том же духе 💪',
+      'JavaScript — сила! ⚡'
+    ];
+
+    button.addEventListener('click', () => {
+      const random = messages[Math.floor(Math.random() * messages.length)];
+      message.textContent = random;
+      message.classList.add('show');
+      setTimeout(() => message.classList.remove('show'), 3000);
+    });
+  </script>
+</body>
+</html>
